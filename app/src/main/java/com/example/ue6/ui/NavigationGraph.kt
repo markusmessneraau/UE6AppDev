@@ -12,6 +12,8 @@ object Routes {
     const val HOME = "home"
     const val SCOREBOARD = "scoreboard"
     const val TODO = "todo"
+    const val MESSAGE = "message"
+
 }
 
 @Composable
@@ -26,6 +28,9 @@ fun NavigationGraph(navController: NavHostController = rememberNavController()) 
 
         composable(Routes.TODO) {
             TodoScreen()
+        }
+        composable(Routes.MESSAGE) {
+            MessageScreen()
         }
     }
 }

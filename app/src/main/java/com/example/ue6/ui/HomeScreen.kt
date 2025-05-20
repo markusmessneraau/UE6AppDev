@@ -17,16 +17,20 @@ fun HomeScreen(navController: NavController) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Button(
                 onClick = { navController.navigate(Routes.SCOREBOARD) },
-                modifier = Modifier.padding(16.dp)
+
             ) {
                 Text("UE1")
             }
 
             Button(
                 onClick = { navController.navigate(Routes.TODO) },
-                modifier = Modifier.padding(16.dp)
+
             ) {
                 Text("UE2")
+            }
+
+            Button(onClick = { navController.navigate(Routes.MESSAGE) }) {
+                Text("UE3")
             }
         }
     }
