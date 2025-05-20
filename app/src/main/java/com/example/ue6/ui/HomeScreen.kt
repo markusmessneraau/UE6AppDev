@@ -14,11 +14,21 @@ fun HomeScreen(navController: NavController) {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Button(
-            onClick = { navController.navigate(Routes.SCOREBOARD) },
-            modifier = Modifier.padding(16.dp)
-        ) {
-            Text("UE1")
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Button(
+                onClick = { navController.navigate(Routes.SCOREBOARD) },
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text("UE1")
+            }
+
+            Button(
+                onClick = { navController.navigate(Routes.TODO) },
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text("UE2")
+            }
         }
     }
 }
+

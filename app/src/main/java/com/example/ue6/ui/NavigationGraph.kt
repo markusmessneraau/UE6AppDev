@@ -11,6 +11,7 @@ import com.example.ue6.ui.HomeScreen
 object Routes {
     const val HOME = "home"
     const val SCOREBOARD = "scoreboard"
+    const val TODO = "todo"
 }
 
 @Composable
@@ -21,6 +22,10 @@ fun NavigationGraph(navController: NavHostController = rememberNavController()) 
         }
         composable(Routes.SCOREBOARD) {
             ScoreboardScreen()
+        }
+
+        composable(Routes.TODO) {
+            TodoScreen()
         }
     }
 }
