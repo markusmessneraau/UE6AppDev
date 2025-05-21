@@ -14,6 +14,9 @@ fun MessageScreen() {
     val viewModel: MessageViewModel = viewModel()
     val message by viewModel.currentMessage.collectAsState()
 
+    // Lokaler UI-Zustand: Ob der Stream aktiv ist
+    var isStreaming by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -21,7 +24,6 @@ fun MessageScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-
         Text(
             text = message?.content ?: "Keine Nachricht",
             style = MaterialTheme.typography.headlineSmall
@@ -29,8 +31,20 @@ fun MessageScreen() {
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        Button(onClick = { viewModel.toggleStream() }) {
-            Text("Start / Stop")
+        // Toggle Switch
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(if (isStreaming) "Läuft" else "Gestoppt")
+            Spacer(modifier = Modifier.width(12.dp))
+            Switch(
+                checked = isStreaming,
+                onCheckedChange = {
+                    isStreaming = it
+                    viewModel.toggleStream()
+                }
+            )
         }
     }
 }
+
